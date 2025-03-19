@@ -21,7 +21,7 @@
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
       <td
         appCell
         mat-cell
@@ -30,7 +30,7 @@
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
       >
-        {{ element.name }}
+        {{ element.status }}
       </td>
     </ng-container>
 
