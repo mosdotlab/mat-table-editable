@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
 	styleUrls: ['./cell-input.component.scss']
 })
 export class CellInputComponent implements OnInit {
-	@Input() value:string;
-	@Input() type:string;
-	@Input() editMode:boolean;
+	@Input() value: string;
+	@Input() type: string = "text";
+	@Input() editMode: boolean;
 
 	constructor() { }
 

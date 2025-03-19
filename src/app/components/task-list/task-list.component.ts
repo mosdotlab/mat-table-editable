@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ITask } from 'src/app/models/task.models';
+import { ITask, STATUSES } from 'src/app/models/task.models';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -29,6 +29,8 @@ export class TaskListComponent implements OnInit {
 	public dataSource = new MatTableDataSource();
 	public message: string;
 	public elements: ITask[];
+	public statuses = STATUSES;
+
 	private tasks: ITask[];
 
 	constructor(

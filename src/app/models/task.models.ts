@@ -11,7 +11,7 @@ export interface IKeyValue {
 	value: string,
 }
 
-export const STATUS: IKeyValue[] = [
+export const STATUSES: IKeyValue[] = [
 	{
 		key: 1,
 		value: "Создана",
@@ -22,7 +22,7 @@ export const STATUS: IKeyValue[] = [
 	},
 	{
 		key: 3,
-		value: "На тестировании",
+		value: "В тестировании",
 	},
 	{
 		key: 4,

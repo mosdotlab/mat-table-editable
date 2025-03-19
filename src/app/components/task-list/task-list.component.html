@@ -30,7 +30,8 @@
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
       >
-        {{ element.status }}
+        <app-cell-select [editMode]="true" [options]="statuses" [selectedValue]="element.status">
+        </app-cell-select>
       </td>
     </ng-container>
 
@@ -44,7 +45,7 @@
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
       >
-        {{ element.spentTime }}
+        <app-cell-input [editMode]="true" [value]="element.spentTime"> </app-cell-input>
       </td>
     </ng-container>
 
@@ -58,7 +59,7 @@
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
       >
-        {{ element.comment }}
+        <app-cell-input [editMode]="true" type="number" [value]="element.comment"> </app-cell-input>
       </td>
     </ng-container>
 
