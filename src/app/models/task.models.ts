@@ -1,27 +1,12 @@
-export interface IAudio {
+export interface ITask {
 	id: number,
-	artist: IArtist,
-	song: ISong
-}
-
-export interface IArtist {
 	name: string,
-	img: string,
+	status: number,
+	comment: string,
+	spentTime: number
 }
 
-export interface ISong {
-	url: string,
-	title: string,
-	fileName: string,
-}
-
-export interface IAudioElement {
-	id: number,
-	playIcon?: string,
-	favoriteIcon?: string,
-	downloadIcon?: string,
-	artistImg?: string,
-	songUrl: string;
-	songTitle: string,
-	fileName: string
+export interface IKeyValue {
+	key: number,
+	value: string,
 }

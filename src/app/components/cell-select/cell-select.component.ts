@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IKeyValue } from 'src/app/models/task.models';
 
 @Component({
 	selector: 'app-cell-select',
@@ -6,13 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 	styleUrls: ['./cell-select.component.scss']
 })
 export class CellSelectComponent implements OnInit {
-@Input() options:any[];
-@Input() selectedValue:string;
-@Input() editMode:boolean;
+	@Input() options: IKeyValue[];
+	@Input() selectedValue: number;
+	@Input() editMode: boolean;
 
-constructor() { }
+	constructor() { }
 
-ngOnInit(): void {
-}
+	ngOnInit(): void {
+	}
 
 }
