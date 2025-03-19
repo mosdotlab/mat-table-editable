@@ -1,1 +1,5 @@
-<p>cell-input works!</p>
+<mat-form-field *ngIf="!!editMode">
+  <input matInput placeholder="" value="value" type="type" />
+</mat-form-field>
+
+<p *ngIf="!editMode">{{ value }}</p>
