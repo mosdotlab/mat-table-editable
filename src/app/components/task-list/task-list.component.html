@@ -8,28 +8,21 @@
   >
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-      <td appCell mat-cell *matCellDef="let element; let i = index" [tabIndex]="i === 0 ? 0 : -1">
+      <td appCell mat-cell *matCellDef="let element">
         {{ element.id }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
-      <td appCell mat-cell *matCellDef="let element; let i = index" [tabIndex]="i === 0 ? 0 : -1">
+      <td appCell mat-cell *matCellDef="let element">
         {{ element.name }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
-      <td
-        appCell
-        mat-cell
-        editable
-        editMode="false"
-        *matCellDef="let element; let i = index"
-        [tabIndex]="i === 0 ? 0 : -1"
-      >
+      <td appCell mat-cell *matCellDef="let element">
         <app-cell-select [editMode]="true" [options]="statuses" [selectedValue]="element.status">
         </app-cell-select>
       </td>
@@ -37,28 +30,14 @@
 
     <ng-container matColumnDef="spentTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Списано часов</th>
-      <td
-        appCell
-        mat-cell
-        editable
-        editMode="false"
-        *matCellDef="let element; let i = index"
-        [tabIndex]="i === 0 ? 0 : -1"
-      >
+      <td appCell mat-cell *matCellDef="let element; let i = index">
         <app-cell-input [editMode]="true" [value]="element.spentTime"> </app-cell-input>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="comment">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Списано часов</th>
-      <td
-        appCell
-        mat-cell
-        editable
-        editMode="false"
-        *matCellDef="let element; let i = index"
-        [tabIndex]="i === 0 ? 0 : -1"
-      >
+      <td appCell mat-cell *matCellDef="let element; let i = index">
         <app-cell-input [editMode]="true" type="number" [value]="element.comment"> </app-cell-input>
       </td>
     </ng-container>

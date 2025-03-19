@@ -10,6 +10,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { CellSelectComponent } from './components/cell-select/cell-select.component';
 import { CellInputComponent } from './components/cell-input/cell-input.component';
+import { CellDirective } from './directives/cell.directive';
 
 @NgModule({
 	declarations: [
@@ -17,7 +18,8 @@ import { CellInputComponent } from './components/cell-input/cell-input.component
 		ToolbarComponent,
 		TaskListComponent,
 		CellSelectComponent,
-		CellInputComponent
+		CellInputComponent,
+		CellDirective
 	],
 	imports: [
 		BrowserModule,
