@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatSelectChange } from '@angular/material/select';
 import { IKeyValue } from 'src/app/models/task.models';
 
 @Component({
@@ -14,4 +15,8 @@ export class CellSelectComponent {
 	@Input() editMode: number;
 
 	constructor() { }
+
+	public selectionChange(event: MatSelectChange) {
+		this.selectedValue = this.options.find(x => x.key === event.value)!.value;
+	}
 }
