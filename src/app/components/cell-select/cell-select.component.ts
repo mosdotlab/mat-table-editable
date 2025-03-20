@@ -18,11 +18,11 @@ export class CellSelectComponent implements OnChanges {
 	public currentValue: string;
 
 	constructor() { }
+	
 	ngOnChanges(changes: SimpleChanges): void {
 		const val = changes?.['selectedValue']?.currentValue;
 		if (val)
 			this.currentValue = this.selectedValue;
-
 	}
 
 	public selectionChange(event: MatSelectChange) {
