@@ -66,6 +66,7 @@
         <app-cell-input
           label="Сколько часов потрачено"
           type="number"
+          [maxlength]="3"
           [value]="element.spentTime"
           [editMode]="+(spentTime?.getAttribute('editMode') || 0)"
         >
@@ -84,6 +85,7 @@
       >
         <app-cell-input
           label="Текст комментария"
+          [maxlength]="50"
           [value]="element.comment"
           [editMode]="+(comment?.getAttribute('editMode') || 0)"
         >

@@ -1,7 +1,7 @@
-<mat-form-field *ngIf="!!editMode" appearance="outline">
+<mat-form-field *ngIf="!!editMode" appearance="outline" color="accent">
   <mat-label>{{ label }}</mat-label>
-  <input #input matInput [(ngModel)]="value" [type]="type" [maxlength]="50" />
-  <mat-hint align="end">{{ input.value.length }}/50</mat-hint>
+  <input #input matInput [(ngModel)]="value" [type]="type" [maxlength]="maxlength" />
+  <mat-hint align="end">{{ input.value.length }}/{{ maxlength }}</mat-hint>
 </mat-form-field>
 
 <p *ngIf="!editMode">{{ value }}</p>

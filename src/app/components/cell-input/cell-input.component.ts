@@ -9,6 +9,7 @@ export class CellInputComponent {
 	@Input() label: string;
 	@Input() value: string;
 	@Input() type = "text";
+	@Input() maxlength: number;
 	@Input() editMode: number;
 
 	constructor() { }
