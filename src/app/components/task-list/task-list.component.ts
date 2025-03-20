@@ -29,7 +29,7 @@ export class TaskListComponent implements OnInit, AfterContentChecked {
 	public elements: ITaskElement[];
 	public statuses = STATUSES;
 
-	public tasks: ITask[];
+	private tasks: ITask[];
 
 	constructor(
 		private _api: ApiService,
