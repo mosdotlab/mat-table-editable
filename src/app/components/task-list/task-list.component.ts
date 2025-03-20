@@ -48,7 +48,6 @@ export class TaskListComponent implements OnInit, AfterContentChecked {
 
 	ngAfterContentChecked() {
 		this._cdref.detectChanges();
-
 	}
 
 	private getTableData(tasks: ITask[]): ITaskElement[] {
