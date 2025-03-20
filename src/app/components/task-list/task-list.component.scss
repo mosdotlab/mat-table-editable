@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    color: lightsalmon;
+  }
+
+  th,
+  td {
+    padding: 1em;
+  }
+}
+
+.table-container {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.mat-row {
+  height: 6em;
+}
+
+[tabindex='0'] {
+  color: #c2185b !important;
+}
+
+.mat-column-id {
+  width: 5%;
+}
+
+.mat-column-name {
+  width: 20%;
+  color: bisque;
+}
+
+.mat-column-status {
+  color: gainsboro;
+  width: 20%;
+}
+
+.mat-column-spentTime {
+  width: 20%;
+}
+
+.mat-column-comment {
+  width: 20%;
+}

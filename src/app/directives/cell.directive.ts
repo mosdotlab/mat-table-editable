@@ -1,31 +1,37 @@
 import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
-	selector: '[appCell]'
+	selector: '[appCell]',
+	exportAs: 'appCell'
 })
 export class CellDirective implements OnInit {
 	@Input() el: ElementRef; // TODO
 	@Input() editable: boolean;
-	@Input() editMode: boolean;
+	//@Input() editMode: boolean;
+	public editMode: boolean = true;
 
-	constructor() { }
+	constructor(public _el: ElementRef) { }
 
 	ngOnInit() {
+
 	}
 
 	@HostListener('window:click', [
 		'$event',
 		'$event.target'
 	]) onClick(event: any) {
-		event.target.setAttribute('tabindex', '0');
-		event.target.focus();
+		if (event.target.nodeName === "TD") {
+			//event.target.setAttribute('tabindex', '0');
+			//event.target.focus();
+			//this._el.nativeElement.focus();		
+		}
 	}
 
 	@HostListener('window:keydown', [
 		'$event',
 		'$event.target'
 	])
-	onKeyDown(event: KeyboardEvent) {
+	onKeyDown(event: any) {
 		switch (event.key) {
 		case "ArrowUp":
 			this.Up(event);
@@ -40,8 +46,10 @@ export class CellDirective implements OnInit {
 			this.Right(event);
 			break;
 		case "Enter":
+			event.target.setAttribute('editMode', '1');
 			break;
 		case "Escape":
+			event.target.setAttribute('editMode', '0');
 			break;
 		default:
 			return;

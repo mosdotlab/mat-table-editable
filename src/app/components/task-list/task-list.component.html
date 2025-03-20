@@ -15,30 +15,50 @@
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
-      <td appCell mat-cell *matCellDef="let element">
-        {{ element.name }}
+      <td appCell mat-cell *matCellDef="let element" #name1>
+        {{ element.name }} {{ name1.getAttribute('tabindex') }} {{ name1.getAttribute('editMode') }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
-      <td appCell mat-cell *matCellDef="let element">
-        <app-cell-select [editMode]="true" [options]="statuses" [selectedValue]="element.status">
+      <td
+        #status
+        appCell
+        mat-cell
+        *matCellDef="let element; let i = index"
+        [tabIndex]="i === 0 ? 0 : -1"
+      >
+        <app-cell-select
+          [options]="statuses"
+          [selectedIndex]="element.status"
+          [selectedValue]="element.statusValue"
+          [editMode]="+(status?.getAttribute('editMode') || 0)"
+        >
         </app-cell-select>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="spentTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Списано часов</th>
-      <td appCell mat-cell *matCellDef="let element; let i = index">
-        <app-cell-input [editMode]="true" [value]="element.spentTime"> </app-cell-input>
+      <td #spentTime appCell mat-cell *matCellDef="let element">
+        <app-cell-input
+          type="number"
+          [value]="element.spentTime"
+          [editMode]="+(spentTime?.getAttribute('editMode') || 0)"
+        >
+        </app-cell-input>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="comment">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Списано часов</th>
-      <td appCell mat-cell *matCellDef="let element; let i = index">
-        <app-cell-input [editMode]="true" type="number" [value]="element.comment"> </app-cell-input>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Комментарий</th>
+      <td #comment appCell mat-cell *matCellDef="let element">
+        <app-cell-input
+          [value]="element.comment"
+          [editMode]="+(comment?.getAttribute('editMode') || 0)"
+        >
+        </app-cell-input>
       </td>
     </ng-container>
 

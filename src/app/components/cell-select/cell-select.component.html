@@ -1,6 +1,6 @@
 <mat-form-field *ngIf="!!editMode">
-  <mat-select [(ngModel)]="selectedValue">
-    <mat-option *ngFor="let option of options" [value]="option.key">{{ option.value }} </mat-option>
+  <mat-select [(ngModel)]="selectedIndex">
+    <mat-option *ngFor="let option of options" [value]="option.key">{{ option.value }}</mat-option>
   </mat-select>
 </mat-form-field>
 

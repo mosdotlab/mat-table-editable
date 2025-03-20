@@ -1,5 +1,5 @@
 <mat-form-field *ngIf="!!editMode">
-  <input matInput placeholder="" value="value" [type]="type" />
+  <input matInput [(ngModel)]="value" [type]="type" />
 </mat-form-field>
 
 <p *ngIf="!editMode">{{ value }}</p>

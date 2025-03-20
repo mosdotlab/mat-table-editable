@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CellInputComponent implements OnInit {
 	@Input() value: string;
-	@Input() type: string = "text";
-	@Input() editMode: boolean;
+	@Input() type = "text";
+	@Input() editMode: number;
 
 	constructor() { }
 

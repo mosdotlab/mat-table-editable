@@ -8,8 +8,9 @@ import { IKeyValue } from 'src/app/models/task.models';
 })
 export class CellSelectComponent implements OnInit {
 	@Input() options: IKeyValue[];
-	@Input() selectedValue: number;
-	@Input() editMode: boolean;
+	@Input() selectedIndex: number;
+	@Input() selectedValue: string;
+	@Input() editMode: number;
 
 	constructor() { }
 

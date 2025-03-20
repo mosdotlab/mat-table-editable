@@ -6,6 +6,15 @@ export interface ITask {
 	spentTime: number
 }
 
+export interface ITaskElement {
+	id: number,
+	name: string,
+	status: number,
+	statusValue: string;
+	comment: string,
+	spentTime: number
+}
+
 export interface IKeyValue {
 	key: number,
 	value: string,
