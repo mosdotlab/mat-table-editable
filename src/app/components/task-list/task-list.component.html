@@ -4,24 +4,38 @@
     *ngIf="dataSource.data?.length"
     [dataSource]="dataSource"
     matSort
+    matSortActive="id"
+    matSortDirection="desc"
     class="mat-elevation-z8"
   >
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-      <td appCell mat-cell *matCellDef="let element">
+      <td
+        #id
+        appCell
+        mat-cell
+        *matCellDef="let element; let i = index"
+        [tabIndex]="i === 0 ? 0 : -1"
+      >
         {{ element.id }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
-      <td appCell mat-cell *matCellDef="let element" #name1>
-        {{ element.name }} {{ name1.getAttribute('tabindex') }} {{ name1.getAttribute('editMode') }}
+      <td
+        #name
+        appCell
+        mat-cell
+        *matCellDef="let element; let i = index"
+        [tabIndex]="i === 0 ? 0 : -1"
+      >
+        {{ element.name }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>*Статус</th>
       <td
         #status
         appCell
@@ -40,8 +54,14 @@
     </ng-container>
 
     <ng-container matColumnDef="spentTime">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Списано часов</th>
-      <td #spentTime appCell mat-cell *matCellDef="let element">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>*Потрачено часов</th>
+      <td
+        #spentTime
+        appCell
+        mat-cell
+        *matCellDef="let element; let i = index"
+        [tabIndex]="i === 0 ? 0 : -1"
+      >
         <app-cell-input
           type="number"
           [value]="element.spentTime"
@@ -52,8 +72,14 @@
     </ng-container>
 
     <ng-container matColumnDef="comment">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Комментарий</th>
-      <td #comment appCell mat-cell *matCellDef="let element">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>*Комментарий</th>
+      <td
+        #comment
+        appCell
+        mat-cell
+        *matCellDef="let element; let i = index"
+        [tabIndex]="i === 0 ? 0 : -1"
+      >
         <app-cell-input
           [value]="element.comment"
           [editMode]="+(comment?.getAttribute('editMode') || 0)"
@@ -66,3 +92,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+
+<p class="info">
+  *Звездочкой отмечены редактируемые столбцы (ENTER - редактирование, ESC - отмена)
+</p>

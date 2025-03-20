@@ -1,5 +1,6 @@
-<mat-form-field *ngIf="!!editMode">
-  <input matInput [(ngModel)]="value" [type]="type" />
+<mat-form-field *ngIf="!!editMode" appearance="outline">
+  <input #input matInput [(ngModel)]="value" [type]="type" [maxlength]="50" />
+  <mat-hint align="end">{{ input.value.length }}/50</mat-hint>
 </mat-form-field>
 
 <p *ngIf="!editMode">{{ value }}</p>

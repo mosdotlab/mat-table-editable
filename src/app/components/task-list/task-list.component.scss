@@ -1,28 +1,38 @@
+.table-container {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
 
   th {
     color: lightsalmon;
+    padding-left: 2em;
+    padding-right: 1em;
   }
 
-  th,
   td {
-    padding: 1em;
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-right: 1em;
   }
-}
-
-.table-container {
-  max-height: 85vh;
-  overflow-y: auto;
 }
 
 .mat-row {
-  height: 6em;
+  height: 8em;
 }
 
-[tabindex='0'] {
-  color: #c2185b !important;
+.mat-cell:focus {
+  border: 2px solid #c2185b !important;
+}
+
+.info {
+  margin-top: 1em;
+  margin-left: 1em;
+  font-size: 1em;
+  color: midnightblue;
 }
 
 .mat-column-id {

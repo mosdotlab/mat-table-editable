@@ -1,37 +1,18 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 @Directive({
 	selector: '[appCell]',
 	exportAs: 'appCell'
 })
-export class CellDirective implements OnInit {
-	@Input() el: ElementRef; // TODO
-	@Input() editable: boolean;
-	//@Input() editMode: boolean;
-	public editMode: boolean = true;
-
-	constructor(public _el: ElementRef) { }
-
-	ngOnInit() {
-
-	}
-
-	@HostListener('window:click', [
-		'$event',
-		'$event.target'
-	]) onClick(event: any) {
-		if (event.target.nodeName === "TD") {
-			//event.target.setAttribute('tabindex', '0');
-			//event.target.focus();
-			//this._el.nativeElement.focus();		
-		}
-	}
+export class CellDirective {
 
 	@HostListener('window:keydown', [
 		'$event',
 		'$event.target'
 	])
 	onKeyDown(event: any) {
+		if (event.target.nodeName !== "TD") return;
+
 		switch (event.key) {
 		case "ArrowUp":
 			this.Up(event);
