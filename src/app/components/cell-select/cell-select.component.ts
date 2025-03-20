@@ -19,7 +19,7 @@ export class CellSelectComponent implements OnChanges {
 
 	constructor() { }
 	
-	ngOnChanges(changes: SimpleChanges): void {
+	ngOnChanges(changes: SimpleChanges) {
 		const val = changes?.['selectedValue']?.currentValue;
 		if (val)
 			this.currentValue = this.selectedValue;
