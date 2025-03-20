@@ -28,6 +28,10 @@ table {
   border: 2px solid #c2185b !important;
 }
 
+.mat-cell:focus-visible {
+  outline: #c2185b solid 1px !important;
+}
+
 .info {
   margin-top: 1em;
   margin-left: 1em;

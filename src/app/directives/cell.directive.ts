@@ -37,33 +37,33 @@ export class CellDirective {
 		}
 	}
 
-	public Up(event: any) {
+	private Up(event: any) {
 		if (event.target.parentElement.previousElementSibling) {
 			const index = event.target.cellIndex;
 			this.focusCell(event.target, event.target.parentElement.previousElementSibling.children.item(index));
 		}
 	}
 
-	public Down(event: any) {
+	private Down(event: any) {
 		if (event.target.parentElement.nextElementSibling) {
 			const index = event.target.cellIndex;
 			this.focusCell(event.target, event.target.parentElement.nextElementSibling.children.item(index));
 		}
 	}
 
-	public Left(event: any) {
+	private Left(event: any) {
 		if (event.target.previousElementSibling) {
 			this.focusCell(event.target, event.target.previousElementSibling);
 		}
 	}
 
-	public Right(event: any) {
+	private Right(event: any) {
 		if (event.target.nextElementSibling) {
 			this.focusCell(event.target, event.target.nextElementSibling);
 		}
 	}
 
-	public focusCell(previousCell: any, nextCell: any) {
+	private focusCell(previousCell: any, nextCell: any) {
 		previousCell.setAttribute('tabindex', '-1');
 		nextCell.setAttribute('tabindex', '0');
 		nextCell.focus();

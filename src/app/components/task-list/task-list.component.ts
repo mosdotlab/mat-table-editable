@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { ITask, ITaskElement, STATUSES } from 'src/app/models/task.models';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -10,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 	templateUrl: './task-list.component.html',
 	styleUrls: ['./task-list.component.scss']
 })
-export class TaskListComponent implements OnInit {
+export class TaskListComponent implements OnInit, AfterContentChecked {
 	public sort: MatSort;
 
 	@ViewChild(MatSort) set matSort(ms: MatSort) {
@@ -33,8 +32,8 @@ export class TaskListComponent implements OnInit {
 	public tasks: ITask[];
 
 	constructor(
-		public _router: Router,
-		private _api: ApiService
+		private _api: ApiService,
+		private _cdref: ChangeDetectorRef
 	) { }
 
 	ngOnInit() {
@@ -45,6 +44,11 @@ export class TaskListComponent implements OnInit {
 				this.tasks = data;
 				this.dataSource.data = this.getTableData(this.tasks);
 			});
+	}
+
+	ngAfterContentChecked() {
+		this._cdref.detectChanges();
+
 	}
 
 	private getTableData(tasks: ITask[]): ITaskElement[] {

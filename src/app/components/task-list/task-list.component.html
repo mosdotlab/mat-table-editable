@@ -44,6 +44,7 @@
         [tabIndex]="i === 0 ? 0 : -1"
       >
         <app-cell-select
+          label="Выберите статус"
           [options]="statuses"
           [selectedIndex]="element.status"
           [selectedValue]="element.statusValue"
@@ -63,6 +64,7 @@
         [tabIndex]="i === 0 ? 0 : -1"
       >
         <app-cell-input
+          label="Сколько часов потрачено"
           type="number"
           [value]="element.spentTime"
           [editMode]="+(spentTime?.getAttribute('editMode') || 0)"
@@ -81,6 +83,7 @@
         [tabIndex]="i === 0 ? 0 : -1"
       >
         <app-cell-input
+          label="Текст комментария"
           [value]="element.comment"
           [editMode]="+(comment?.getAttribute('editMode') || 0)"
         >
@@ -94,5 +97,5 @@
 </div>
 
 <p class="info">
-  *Звездочкой отмечены редактируемые столбцы (ENTER - редактирование, ESC - отмена)
+  * Звездочкой отмечены редактируемые столбцы (ENTER - редактирование, ESC - отмена)
 </p>

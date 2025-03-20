@@ -1,4 +1,5 @@
 <mat-form-field *ngIf="!!editMode" appearance="outline">
+  <mat-label>{{ label }}</mat-label>
   <mat-select [(ngModel)]="selectedIndex">
     <mat-option *ngFor="let option of options" [value]="option.key">{{ option.value }}</mat-option>
   </mat-select>

@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 	styleUrls: ['./cell-input.component.scss']
 })
 export class CellInputComponent {
+	@Input() label: string;
 	@Input() value: string;
 	@Input() type = "text";
 	@Input() editMode: number;
