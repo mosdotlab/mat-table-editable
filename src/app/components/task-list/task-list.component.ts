@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ITask, ITaskElement, STATUSES } from 'src/app/models/task.models';
 import { ApiService } from 'src/app/services/api.service';
+import { CellService } from 'src/app/services/cell.service';
 
 @Component({
 	selector: 'app-task-list',
@@ -32,6 +33,7 @@ export class TaskListComponent implements OnInit, AfterContentChecked {
 	private tasks: ITask[];
 
 	constructor(
+		public _cell:CellService,
 		private _api: ApiService,
 		private _cdref: ChangeDetectorRef
 	) { }

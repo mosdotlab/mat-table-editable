@@ -1,20 +1,13 @@
-import { Directive, HostListener } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-/** 
- * @deprecated Use CellService instead 
- */
-@Directive({
-	selector: '[appCell]',
-	exportAs: 'appCell'
+@Injectable({
+	providedIn: 'root'
 })
-export class CellDirective {
+export class CellService {
 
-	// Слишком много событий
-	@HostListener('window:keydown', [
-		'$event',
-		'$event.target'
-	])
-	onKeyDown(event: any) {
+	constructor() { }
+
+	public onKeyDown(event: any) {
 		if (event.target.nodeName !== "TD") return;
 
 		switch (event.key) {
@@ -31,7 +24,9 @@ export class CellDirective {
 			this.Right(event);
 			break;
 		case "Enter":
-			event.target.setAttribute('editMode', 1);
+			const val = +event.target.getAttribute('editMode') || 0;
+			const editMode = val === 0 ? 1 : 0;
+			event.target.setAttribute('editMode', editMode);
 			break;
 		case "Escape":
 			event.target.setAttribute('editMode', 0);
@@ -73,3 +68,4 @@ export class CellDirective {
 		nextCell.focus();
 	}
 }
+

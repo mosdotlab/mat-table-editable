@@ -12,7 +12,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
       <td
         #id
-        appCell
+        (keydown)="_cell.onKeyDown($event)"
         mat-cell
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
@@ -25,7 +25,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
       <td
         #name
-        appCell
+        (keydown)="_cell.onKeyDown($event)"
         mat-cell
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
@@ -38,7 +38,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>*Статус</th>
       <td
         #status
-        appCell
+        (keydown)="_cell.onKeyDown($event)"
         mat-cell
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
@@ -58,7 +58,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>*Потрачено часов</th>
       <td
         #spentTime
-        appCell
+        (keydown)="_cell.onKeyDown($event)"
         mat-cell
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
@@ -78,7 +78,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>*Комментарий</th>
       <td
         #comment
-        appCell
+        (keydown)="_cell.onKeyDown($event)"
         mat-cell
         *matCellDef="let element; let i = index"
         [tabIndex]="i === 0 ? 0 : -1"
