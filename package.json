@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "jest",
+    "test-dir": "jest src/app/directives/cell.directive.spec.ts",
     "lint": "ng lint --fix",
     "pretty-quick": "pretty-quick --staged",
     "prepare": "husky install"
@@ -43,6 +44,7 @@
     "eslint": "^8.28.0",
     "husky": "^8.0.0",
     "jasmine-core": "~4.3.0",
+    "jest": "^29.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
